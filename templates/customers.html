@@ -1,0 +1,45 @@
+
+{%extends 'index.html'%}
+{% load static %}
+{% block body %}
+<style>
+    body {
+      
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size:100%;
+    }
+    </style>
+<body background="{% static 'setup1/img/9.jpg' %}">
+    
+    <div class="container" >
+        <div class="panel panel-default" id="panel1">
+            <div class="panel-body">
+                <h3>Customer Details</h3>
+                <table id="customers" class="table">
+                    <tr>
+                        <th>SR.No</th>
+                        <th>Name</th>
+                        <th>Bank_ID</th>
+                        <th>Balance</th>
+                        <th>BankID</th>
+                        
+                    </tr>
+                    {% for name,bankid,email,balance,b in Balance %}
+                    <tr>
+                        
+                        <td>{{name}}</td>
+                        <td>{{bankid}}</td>
+                        <td>{{email}}</td>
+                        <td>{{balance}}</td>
+                        <td>{{b}}</td>
+            
+                    </tr>
+                    {% endfor %}
+            
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

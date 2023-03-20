@@ -1,0 +1,78 @@
+{%extends 'index.html'%}
+{% load static %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'setup1/style.css' %}">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Send Money</title>
+</head>
+
+<body background="black">
+
+     <div class="container">
+    <div class="card mx-auto mt-5" style="width: 50rem;" id="card1">  
+        <div class="card-body">     
+            <form method="POST">
+                
+                {% csrf_token %}
+                <div class="row">
+                    <label for="sender" id="sender">
+                        Sender
+                    </label>
+                    <div class="form-group col-xs-11 mx-auto">
+                        
+                        <select name="Sender1" class="form-control">
+
+                            {% for i in customer_name %}
+                            <option class="form-control" value="{{i}}">{{i}}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="receive" id="sender">
+                        Receiver
+                    </label>
+                    <div class="form-group col-xs-11  mx-auto">
+                        
+                        <select name="Receiver1" class="form-control">
+
+                            {% for i in customer_name %}
+                            <option value="{{i}}">{{i}}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <label id="sender">
+                        Amount
+                    </label>
+                    <div class="form-group col-xs-11 mx-auto">
+                        
+                        <input type="number" class="form-control mx-auto" name="amount1"><br>
+                         
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <button  type="submit" class="btn btn-primary mb-2">Submit </button>
+                
+                    </div>
+                </div>
+                
+            </form>
+        </div> 
+    </div>
+</div>
+
+
+</body></html>
+{% endblock %}
